@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-
+#include <iostream>
+using namespace std;
 #include <net/if.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -56,6 +57,8 @@ int main(void)
 
     printf("Wrote %d bytes\n", nbytes);
     printf("Wrote %d bytes\n", nbytes2);
+    cout << nbytes << endl;
+    cout << nbytes2 << endl;
 
     return 0;
 }

@@ -14,12 +14,13 @@
 int main(void)
 {
     int s;
-    int nbytes;
+    int nbytes, nbytes2;
     struct sockaddr_can addr;
     struct can_frame frame;
+    struct can_frame frame2;
     struct ifreq ifr;
 
-    const char *ifname = "vcan0";
+    const char *ifname = "can0";
 
     if ((s = socket(PF_CAN, SOCK_RAW, CAN_RAW)) == -1)
     {
@@ -40,15 +41,21 @@ int main(void)
         perror("Error in socket bind");
         return -2;
     }
-
+    // can massage 1
     frame.can_id = 0x123;
     frame.can_dlc = 2;
     frame.data[0] = 0x11;
     frame.data[1] = 0x22;
-
+    // can massage 2
+    frame2.can_id = 0x321;
+    frame2.can_dlc = 1;
+    frame2.data[0] = 0x15;
+    frame2.data[1] = 0x25;
     nbytes = write(s, &frame, sizeof(struct can_frame));
+    nbytes2 = write(s, &frame2, sizeof(struct can_frame));
 
     printf("Wrote %d bytes\n", nbytes);
+    printf("Wrote %d bytes\n", nbytes2);
 
     return 0;
 }

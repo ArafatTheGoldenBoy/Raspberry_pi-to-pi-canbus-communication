@@ -28,8 +28,19 @@ int main(int, char**)
     //--- GRAB AND WRITE LOOP
     cout << "Start grabbing" << endl
         << "Press any key to terminate" << endl;
-    for (;;)
+    for (int i = 0,j=3,k=5; i <= 15; i++)
     {
+        // Every 3 secend, now we can send message
+        if(i == j){
+            cout << "3 send can message" << endl;
+            
+            j+=3;
+        }
+        if(i == k){
+            cout << "5 send can message" << endl;
+            
+            k+=5;
+        }
         // wait for a new frame from camera and store it into 'frame'
         cap.read(frame);
         // check if we succeeded

@@ -1,0 +1,2 @@
+Important link regarding Internship
+https://stackoverflow.com/questions/61368853/socketcan-read-function-never-returns

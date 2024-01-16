@@ -45,10 +45,11 @@ int main(void)
     frame.can_dlc = 2;
     frame.data[0] = 0x11;
     frame.data[1] = 0x22;
-    for (int i = 0; i < 100; i++)
+    for (;;)
     {
         nbytes = write(s, &frame, sizeof(struct can_frame));
-        frame.data[0] = (rand() % (1 - 1 + 1)) + 1;
+        frame.data[0] = rand() % 2;
+        printf("%d\n", frame.data[0]);
     }
     printf("Wrote %d bytes\n", nbytes);
 

@@ -1,0 +1,22 @@
+# Object Detection using opencv python
+
+Step1: pip install opencv-contrib-python tensorflow
+Note: If error occured then just upgrade pip like this- pip install --upgrade pip
+
+Step2: pip install cvlib
+
+Step3: 
+import cv2
+import cvlib
+from cvlib.object_detection import draw_bbox
+
+video = cv2.VideoCapture(1)
+
+while True:
+	ret, frame = video.read()
+	bbox, level, conf = cv.detect_common_objects(frame)
+	output_image = draw_bbox(frame, bbox, level, conf)
+	cv2.imshow("Object detected", output_image)
+	
+	if cv2.waitKey(1) & 0xFF == ord("q"):
+		break

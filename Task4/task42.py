@@ -1,5 +1,5 @@
 # if we know the speed and distance of a stop sign
-speed = 150  # speed coming from car
+speed = 45  # speed coming from car
 distance = 120  # distance coming from detection algorithm
 Stop = "1"  # stop sign detection coming from detection algorithm
 print("Initial Speed: ", speed)
@@ -18,3 +18,4 @@ while 1:
             break
         distance -= 20  # distance coming from detection algorithm <<<<< not needed if it started coming from algo
         print("Speed: ", speed, " Distance: ", distance)
+ 0

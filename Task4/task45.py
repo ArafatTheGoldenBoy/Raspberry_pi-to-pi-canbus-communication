@@ -39,7 +39,7 @@ while 1:
     print("Reading from can bus every 0.2 seconds .................")
     time.sleep(0.2)
     if stop == 1:
-        if one_time == 1:
+        if one_time == 1 and distance_from_stop_sign > 20 and current_speed > 5:
             de_accelerate = (current_speed * current_speed) / (
                 2 * distance_from_stop_sign - safty_distance
             )  # v2 = u2 + 2as -> a = -u2 / 2s, here v is zero
@@ -64,5 +64,5 @@ while 1:
         time.sleep(3)
         one_time = 1
         de_accelerate = 0
-        current_speed = kiloMeter_per_hour_to_meter_per_second(120)
+        current_speed = kiloMeter_per_hour_to_meter_per_second(0)
         # break
